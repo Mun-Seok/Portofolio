@@ -42,50 +42,91 @@ h2 {
 }
 .introduceBox {
     width: 80%;
-    height: 90vh;
-    margin: 10vh auto 0 auto;
+    margin: 100px auto 0 auto;
 }
-.introduceTextBox{
+.introduceTextBox {
     margin-left: 5%;
+    line-height: 40px;
 }
-.introduceTextBox h3{
+.introduceTextBox p {
+    margin-top: 100px;
+    font-size: 1em;
+    font-weight: 500;
+}
+.introduceTextBox h3 {
     font-size: 25px;
     font-weight: bold;
 }
+.introducePhotoBox img {
+    width: 300px;
+    height: 350px;
+    margin-top: 30px;
+}
 .skillBox {
     width: 80%;
-    height: 90vh;
     margin: 0 auto;
 }
-.skillHtml{
+.skillHtml {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
-.skillHtml img{
+.skillHtml img {
     display: block;
     width: 70px;
     height: 70px;
 }
-.skillHtmlInfo{
+.skillHtmlInfo {
     width: 70%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
-.skillHtmlPercentage{
+.skillHtmlPercentage {
     display: flex;
 }
-.contactBox{
+.projectList {
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.projectList div {
+    width: 300px;
+    height: 300px;
+}
+.projectList div img {
+    display: block;
+    width: 300px;
+}
+.projectList div p {
+    width: 300px;
+    margin-top: 20px;
+    text-align: center;
+}
+.projectPager ul {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+.projectPager li {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #bbb;
+    text-indent: -99999px;
+}
+.contactBox {
     margin-bottom: 10vh;
 }
-.contactBoxIcon{
+.contactBoxIcon {
     display: flex;
     justify-content: space-around;
     text-indent: -99999px;
 }
-.contactBoxIcon img{
+.contactBoxIcon img {
     display: block;
     width: 70px;
     height: 70px;
