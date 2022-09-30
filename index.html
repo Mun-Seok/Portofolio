@@ -14,6 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/style.css" />
         <link rel="shortcut icon" href="./img/favicon.png" />
@@ -23,16 +24,16 @@
         <div id="wrap">
             <nav class="nav-bar">
                 <div class="menu">
-                    <div class="menuIcon" id="menuIcon">
+                    <div class="menuIcon" id="menuIcon" onclick="toggleMenu()">
                         <span>1</span>
                         <span>2</span>
                         <span>3</span>
                     </div>
                     <ul class="menuList" id="menuList">
-                        <li><a href="#">Introduce</a></li>
-                        <li><a href="#">Skill</a></li>
-                        <li><a href="#">Work</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#introduceBox" onclick="toggleMenu()">Introduce</a></li>
+                        <li><a href="#skillBox" onclick="toggleMenu()">Skill</a></li>
+                        <li><a href="#projectBox" onclick="toggleMenu()">Work</a></li>
+                        <li><a href="#contactBox" onclick="toggleMenu()">Contact</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -42,7 +43,7 @@
                     <a href="mailto:anstjr97@gmail.com">contact</a>
                 </div>
             </nav>
-            <div class="introduceBox">
+            <div class="introduceBox" id="introduceBox">
                 <div class="introduceTextBox">
                     <p>안녕하세요.</p>
                     <h3>신입 개발자</h3>
@@ -55,7 +56,7 @@
             </div>
             <!-- introduce -->
             <div class="skillBox">
-                <h2 class="skill title">Skill</h2>
+                <h2 class="skill title" id="skillBox">Skill</h2>
                 <div class="skillHtml">
                     <img src="https://cdn-icons-png.flaticon.com/512/888/888859.png" alt="HTML" />
                     <div class="skillHtmlInfo">
@@ -98,7 +99,7 @@
                 </div>
             </div>
             <!-- skill -->
-            <div class="projectBox">
+            <div class="projectBox" id="projectBox">
                 <h2 class="project title">Work</h2>
                 <div class="projectSlide">
                     <div class="projectSlideBox">
@@ -121,7 +122,7 @@
                 </div>
             </div>
             <!-- project -->
-            <div class="contactBox">
+            <div class="contactBox" id="contactBox">
                 <h2 class="contact title">Contact</h2>
                 <div class="contactBoxIcon">
                     <div class="telephone">
