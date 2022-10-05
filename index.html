@@ -21,124 +21,136 @@
         <title>Portfolio</title>
     </head>
     <body>
+        <div id="loadingSpinner">
+            <div class="spinnerInner"></div>
+        </div>
         <div id="wrap">
-            <nav class="nav-bar">
-                <div class="menu">
-                    <div class="menuIcon" id="menuIcon" onclick="toggleMenu()">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
+            <header>
+                <nav class="nav-bar">
+                    <div class="menu">
+                        <div class="menuIcon" id="menuIcon" onclick="toggleMenu()">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                        <ul class="menuList" id="menuList">
+                            <li><a onclick="moveToMenu(event)" id="introduce">Introduce</a></li>
+                            <li><a onclick="moveToMenu(event)" id="skill">Skill</a></li>
+                            <li><a onclick="moveToMenu(event)" id="project">Work</a></li>
+                            <li><a onclick="moveToMenu(event)" id="contact">Contact</a></li>
+                        </ul>
                     </div>
-                    <ul class="menuList" id="menuList">
-                        <li><a href="#introduceBox" onclick="toggleMenu()">Introduce</a></li>
-                        <li><a href="#skillBox" onclick="toggleMenu()">Skill</a></li>
-                        <li><a href="#projectBox" onclick="toggleMenu()">Work</a></li>
-                        <li><a href="#contactBox" onclick="toggleMenu()">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="logo">
-                    <h1><a>MunSeok</a></h1>
-                </div>
-                <div class="menuContact">
-                    <a href="mailto:anstjr97@gmail.com">contact</a>
-                </div>
-            </nav>
-            <div class="introduceBox" id="introduceBox">
-                <div class="introduceTextBox">
-                    <p>안녕하세요.</p>
-                    <h3>신입 개발자</h3>
-                    <h3>최문석입니다.</h3>
-                    <p>창의적이고 신선한 콘텐츠를 구현해내는 깨어있는 개발자가 되기 위해 노력하고 있습니다.</p>
-                </div>
-                <div class="introducePhotoBox">
-                    <img src="./img/증명사진.jpg" alt="증명사진" />
-                </div>
-            </div>
-            <!-- introduce -->
-            <div class="skillBox">
-                <h2 class="skill title" id="skillBox">Skill</h2>
-                <div class="skillHtml">
-                    <img src="https://cdn-icons-png.flaticon.com/512/888/888859.png" alt="HTML" />
-                    <div class="skillHtmlInfo">
-                        <h3>HTML</h3>
-                        <p>시맨틱 마크업과 브라우저 렌더링 프로세스에 대해서 잘 알고 있습니다.</p>
+                    <div class="logo">
+                        <h1><a>MunSeok</a></h1>
                     </div>
-                </div>
-                <div class="skillHtml">
-                    <img src="https://cdn-icons-png.flaticon.com/512/888/888847.png" alt="CSS" />
-                    <div class="skillHtmlInfo">
-                        <h3>CSS</h3>
-                        <p>크로스 브라우징을 위한 스타일링 방법을 알고 있고, 구형 브라우저(IE) 지원을 위한 도구(Webpack, Gulp)들을 잘 다룹니다.</p>
+                    <div class="menuContact">
+                        <a href="mailto:anstjr97@gmail.com">contact</a>
                     </div>
-                </div>
-                <div class="skillHtml">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Javascript-shield.svg/1200px-Javascript-shield.svg.png" alt="CSS" />
-                    <div class="skillHtmlInfo">
-                        <h3>JAVASCRIPT</h3>
-                        <p>자바스크립트의 비동기 프로세스, 실행 컨텍스트, this 바인딩, Promise, Prototype등과 같은 코어 개념들을 잘 이해하고 있습니다.</p>
+                </nav>
+            </header>
+            <main>
+                <section class="introduceBox" id="introduceBox">
+                    <div class="introduceTextBox">
+                        <p>안녕하세요.</p>
+                        <h3>신입 개발자</h3>
+                        <h3>최문석입니다.</h3>
+                        <p>창의적이고 신선한 콘텐츠를 구현해내는 깨어있는 개발자가 되기 위해 노력하고 있습니다.</p>
+                        <div class="moreProject">
+                            <a href="./subPage.html">Project 보러가기</a>
+                        </div>
                     </div>
-                </div>
-                <div class="skillHtml">
-                    <img
-                        src="data:image/png;base64,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"
-                        alt="REACT"
-                    />
-                    <div class="skillHtmlInfo">
-                        <h3>REACT</h3>
-                        <p>Virtual DOM, Reconciliaion 알고리즘, 컴포넌트의 리렌더링 조건등을 잘 이해하고 있습니다.</p>
+                    <div class="introducePhotoBox">
+                        <img src="./img/증명사진.jpg" alt="증명사진" />
                     </div>
-                </div>
-                <div class="skillIcon">
-                    <img src="https://logodownload.org/wp-content/uploads/2019/10/python-logo-2.png" alt="python" />
-                    <img src="https://i.pinimg.com/736x/d9/7a/d7/d97ad7d1f3f486dc9309a87b0209538a.jpg" alt="java" />
-                    <img
-                        src="data:image/jpeg;base64,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"
-                        alt="c"
-                    />
-                    <img src="https://brandlogos.net/wp-content/uploads/2022/05/figma-logo_brandlogos.net_6n1pb.png" alt="figma" />
-                </div>
-            </div>
-            <!-- skill -->
-            <div class="projectBox" id="projectBox">
-                <h2 class="project title">Work</h2>
-                <div class="projectSlide">
-                    <div class="projectSlideBox">
-                        <img src="./img/project-hnm.jpg" alt="hnm project" />
-                        <p>Up Down Game</p>
+                </section>
+                <!-- introduce -->
+                <section class="skillBox">
+                    <h2 class="skill title" id="skillBox">Skill</h2>
+                    <div class="skillDescription" id="skillHTML">
+                        <img src="https://cdn-icons-png.flaticon.com/512/888/888859.png" alt="HTML" />
+                        <div class="skillDescriptionInfo">
+                            <h3>HTML</h3>
+                            <p>시맨틱 마크업과 브라우저 렌더링 프로세스에 대해서 잘 알고 있습니다.</p>
+                        </div>
                     </div>
-                    <div class="projectSlideBox">
-                        <img src="./img/project-hnm.jpg" alt="hnm project" />
-                        <p>To Do List</p>
+                    <div class="skillDescription" id="skillCss">
+                        <img src="https://cdn-icons-png.flaticon.com/512/888/888847.png" alt="CSS" />
+                        <div class="skillDescriptionInfo">
+                            <h3>CSS</h3>
+                            <p>크로스 브라우징을 위한 스타일링 방법을 알고 있고, 구형 브라우저(IE) 지원을 위한 도구(Webpack, Gulp)들을 잘 다룹니다.</p>
+                        </div>
                     </div>
-                    <div class="projectSlideBox">
-                        <img src="./img/project-hnm.jpg" alt="hnm project" />
-                        <p>News</p>
+                    <div class="skillDescription" id="skillJS">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Javascript-shield.svg/1200px-Javascript-shield.svg.png" alt="CSS" />
+                        <div class="skillDescriptionInfo">
+                            <h3>JAVASCRIPT</h3>
+                            <p>자바스크립트의 비동기 프로세스, 실행 컨텍스트, this 바인딩, Promise, Prototype등과 같은 코어 개념들을 잘 이해하고 있습니다.</p>
+                        </div>
                     </div>
-                    <div class="projectSlideBox">
-                        <img src="./img/project-hnm.jpg" alt="hnm project" />
-                        <p>H&M</p>
+                    <div class="skillDescription" id="skillReact">
+                        <img
+                            src="data:image/png;base64,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"
+                            alt="REACT"
+                        />
+                        <div class="skillDescriptionInfo">
+                            <h3>REACT</h3>
+                            <p>Virtual DOM, Reconciliaion 알고리즘, 컴포넌트의 리렌더링 조건등을 잘 이해하고 있습니다.</p>
+                        </div>
                     </div>
-                    <ul class="projectPager"></ul>
-                </div>
-            </div>
+                    <div class="skillIcon">
+                        <img src="https://logodownload.org/wp-content/uploads/2019/10/python-logo-2.png" alt="python" />
+                        <img src="https://i.pinimg.com/736x/d9/7a/d7/d97ad7d1f3f486dc9309a87b0209538a.jpg" alt="java" />
+                        <img
+                            src="data:image/jpeg;base64,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"
+                            alt="c"
+                        />
+                        <img src="https://brandlogos.net/wp-content/uploads/2022/05/figma-logo_brandlogos.net_6n1pb.png" alt="figma" />
+                    </div>
+                </section>
+                <!-- skill -->
+                <section class="projectBox" id="projectBox">
+                    <h2 class="project title">Work</h2>
+                    <div class="projectSlide">
+                        <div class="projectSlideBox">
+                            <img src="./img/project-hnm.jpg" alt="hnm project" />
+                            <p>Up Down Game</p>
+                        </div>
+                        <div class="projectSlideBox">
+                            <img src="./img/toDoList.png" alt="toDoList project" />
+                            <p>To Do List</p>
+                        </div>
+                        <div class="projectSlideBox">
+                            <img src="./img/newsAPI.png" alt="newsAPI project" />
+                            <p>News</p>
+                        </div>
+                        <div class="projectSlideBox">
+                            <img src="./img/project-hnm.jpg" alt="hnm project" />
+                            <p>H&M</p>
+                        </div>
+                        <ul class="projectPager"></ul>
+                    </div>
+                </section>
+            </main>
             <!-- project -->
-            <div class="contactBox" id="contactBox">
-                <h2 class="contact title">Contact</h2>
-                <div class="contactBoxIcon">
-                    <div class="telephone">
-                        <a href="tel:010-8663-5642">telephone</a>
-                    </div>
-                    <div class="github">
-                        <a href="https://github.com/Mun-Seok" target="_blank">github</a>
-                    </div>
-                    <div class="instagram">
-                        <a href="https://www.instagram.com/moon_0311/" target="_blank">instagram</a>
-                    </div>
-                    <div class="kakao">
-                        <a href="https://open.kakao.com/o/sKgRVtEe" target="_blank">kakao</a>
+            <footer>
+                <div class="contactBox" id="contactBox">
+                    <h2 class="contact title">Contact</h2>
+                    <div class="contactBoxIcon">
+                        <div class="telephone">
+                            <a href="tel:010-8663-5642">telephone</a>
+                        </div>
+                        <div class="github">
+                            <a href="https://github.com/Mun-Seok" target="_blank">github</a>
+                        </div>
+                        <div class="instagram">
+                            <a href="https://www.instagram.com/moon_0311/" target="_blank">instagram</a>
+                        </div>
+                        <div class="kakao">
+                            <a href="https://open.kakao.com/o/sKgRVtEe" target="_blank">kakao</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </footer>
             <!-- contact -->
         </div>
         <script src="./js/main.js"></script>

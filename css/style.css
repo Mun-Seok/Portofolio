@@ -7,6 +7,36 @@
     max-width: 420px;
     margin: 0 auto;
 }
+/* loadingSpinner */
+#loadingSpinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#loadingSpinner .spinnerInner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #009579;
+    border-bottom-color: #009579;
+    animation: loading 0.8s ease infinite;
+}
 .title {
     width: 100%;
     height: 10vh;
@@ -79,7 +109,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 100%;
     height: 100%;
     padding-top: 20%;
     background-color: #222;
@@ -95,10 +125,11 @@
     font-size: 25px;
     text-align: center;
 }
+
 /* introduce */
 .introduceBox {
     width: 80%;
-    margin: 100px auto 0 auto;
+    margin: 100px auto 100px auto;
 }
 .introduceTextBox {
     margin-left: 5%;
@@ -109,31 +140,47 @@
     font-weight: 400;
 }
 .introduceTextBox h3 {
+    margin: 10px 0;
     font-size: 25px;
     font-weight: bold;
 }
+.introduceTextBox .moreProject a {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 50px;
+    background-color: slateblue;
+    color: #fff;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
 .introducePhotoBox img {
-    width: 300px;
-    height: 350px;
+    width: 100%;
+    height: 300px;
     margin-top: 30px;
 }
+
 /* skill */
 .skillBox {
     width: 80%;
     margin: 0 auto;
 }
-.skillHtml {
+.skillDescription {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
-.skillHtml img {
+.skillDescription img {
     display: block;
     width: 70px;
     height: 70px;
 }
-.skillHtmlInfo {
+.skillDescriptionInfo {
     width: 70%;
     display: flex;
     flex-wrap: wrap;
@@ -147,6 +194,9 @@
     display: block;
     width: 70px;
     height: 70px;
+}
+.skillDescription {
+    visibility: hidden;
 }
 /* project */
 .projectBox {
@@ -233,6 +283,11 @@
     #wrap {
         max-width: 1259px;
     }
+    #loadingSpinner .spinnerInner {
+        width: 500px;
+        height: 500px;
+        margin: -250px 0 0 -250px;
+    }
     .title {
         font-size: 38px;
         margin-top: 50px;
@@ -246,10 +301,13 @@
     .introduceBox {
         display: flex;
         justify-content: center;
+        margin-top: 150px;
+        margin-bottom: 200px;
     }
     .introduceTextBox {
-        margin-top: 50px;
         width: 500px;
+        margin-top: 50px;
+        margin-right: 50px;
     }
     .introduceTextBox p {
         line-height: 50px;
@@ -258,11 +316,15 @@
     .introduceTextBox h3 {
         line-height: 50px;
     }
+
     .introducePhotoBox img {
         width: 350px;
         height: 400px;
     }
-    .skillHtml {
+    .skillBox {
+        margin-bottom: 200px;
+    }
+    .skillDescription {
         margin-left: 0;
     }
     .skillIcon {
@@ -323,9 +385,13 @@
         font-size: 20px;
         font-weight: bold;
     }
+    .menuList li a:hover {
+        text-decoration: underline;
+    }
     .introduceBox {
-        height: 100vh;
+        height: 500px;
         margin-top: 200px;
+        margin-bottom: 0;
     }
     .introduceTextBox {
         width: 500px;
@@ -335,19 +401,28 @@
         font-size: 23px;
     }
     .introduceTextBox h3 {
+        display: inline-block;
+        margin-right: 7px;
         font-size: 30px;
         line-height: 50px;
+        word-spacing: 7px;
+    }
+    .introduceTextBox .moreProject a {
+        margin-left: 0;
     }
     .skillBox {
         height: 100vh;
+        margin-bottom: 200px;
     }
-    .skillHtml {
+    .skillDescription {
         justify-content: space-evenly;
+        margin-bottom: 80px;
     }
     .projectBox {
         width: 100%;
         height: 1100px;
         overflow: visible;
+        margin-bottom: 0;
     }
     .projectSlide {
         position: static;
@@ -366,11 +441,13 @@
         height: 400px;
         margin: 0;
         padding: 0;
-        border: 1px solid #111;
+        border: 5px solid #111;
     }
     .projectSlideBox img {
         width: 400px;
         height: 300px;
+        margin-top: 20px;
+        border: 3px solid #bbb;
     }
     .projectSlideBox p {
         width: 500px;
