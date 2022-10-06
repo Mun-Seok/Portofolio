@@ -1,8 +1,8 @@
 /* 변수 선언 및 초기화 */
-let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-let loadingSpinner = document.getElementById('loadingSpinner');
-let menuIcon = document.getElementById('menuIcon');
-let menuList = document.getElementById('menuList');
+let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // 모바일 PC 구분
+let loadingSpinner = document.getElementById('loadingSpinner'); //로딩 스피너
+let menuIcon = document.getElementById('menuIcon'); // 메뉴 아이콘
+let menuList = document.getElementById('menuList'); // 메뉴 목록
 
 /* 함수 정의 */
 // 로딩화면
@@ -24,7 +24,7 @@ const toggleMenu = () => {
 
 // 메뉴 이동
 const moveToMenu = (event) => {
-    let menuName = event.target.id;
+    let menuName = event.target.id; // 각 메뉴의 아이디
     if (menuName == 'introduce') {
         window.scroll(0, 0);
     } else if (menuName == 'skill') {
@@ -34,18 +34,19 @@ const moveToMenu = (event) => {
     } else if (menuName == 'contact') {
         window.scroll(0, 2500);
     }
+    // 메뉴 닫기
     toggleMenu();
 };
 
 // projectSlide 페이지네이션
 const projectPagination = () => {
-    let slide = document.querySelector('.projectSlide');
-    let slideBox = document.querySelectorAll('.projectSlideBox');
-    let slideWidth = slide.clientWidth;
-    let maxSlide = slideBox.length;
-    let currentSlide = 1;
-    let pagination = document.querySelector('.projectPager');
-    //
+    let slide = document.querySelector('.projectSlide'); // 화면에 보여지는 slide
+    let slideBox = document.querySelectorAll('.projectSlideBox'); // slide
+    let slideWidth = slide.clientWidth; // slide의 width (border,margin 제외)
+    let maxSlide = slideBox.length; // slide 갯수
+    let currentSlide = 1; // 현재 보여지는 slide
+    let pagination = document.querySelector('.projectPager'); //슬라이드 페이저 버튼
+    // 페이지네이션 (pagination)
     for (let i = 0; i < maxSlide; i++) {
         if (i === 0) pagination.innerHTML += `<li class="active"></li>`;
         else pagination.innerHTML += `<li></li>`;
@@ -55,11 +56,11 @@ const projectPagination = () => {
     window.addEventListener('resize', () => {
         slideWidth = slide.clientWidth;
     });
-    // 각 버튼 클릭 시 해당 슬라이드로 이동하기
+    // 각 페이저 버튼 클릭 시 해당 슬라이드로 이동하기
     for (let i = 0; i < maxSlide; i++) {
         paginationItems[i].addEventListener('click', () => {
             currentSlide = i + 1;
-            let offset = slideWidth * (currentSlide - 1);
+            let offset = slideWidth * (currentSlide - 1); // 페이저 누른  slide와 현재 slide 편차
             slideBox.forEach((i) => {
                 i.setAttribute('style', `left: ${-offset}px`);
             });
@@ -70,8 +71,23 @@ const projectPagination = () => {
 };
 
 // project의 아이콘 스크롤 내릴때 생성
-const showSkillIcon = () => {};
-
+const showSkill = (value) => {
+    let skills = document.querySelectorAll('.skillDescription'); // 각 skill 들
+    // console.log(value);
+    if (isMobile) {
+        for (let i = 0; i < skills.length; i++) {
+            if (value > 400 + 150 * i) {
+                skills[i].style.visibility = 'visible';
+            }
+        }
+    } else {
+        for (let i = 0; i < skills.length; i++) {
+            if (value > 400 + 100 * i) {
+                skills[i].style.visibility = 'visible';
+            }
+        }
+    }
+};
 // 포트폴리오 alert창
 const ready = () => {
     if (!confirm('본 사이트는 상업적 목적이 아닌 개인 포트폴리오 용도로 제작되었습니다. 홈페이지 일부 내용과 기타 이미지 등은 출처가 따로 있음을 밝힙니다. ')) {
@@ -81,25 +97,15 @@ const ready = () => {
     }
 };
 
+/* 이벤트 추가 */
+// 초기 HTML불러오고 분석했을때 alert창 띄우기, slide와 pager 버튼 생성
 document.addEventListener('DOMContentLoaded', () => {
     ready();
     projectPagination();
 });
 
+// 스크롤시 숨겨둔 skill 아이콘 보이게 해줌
 window.addEventListener('scroll', () => {
-    //스크롤을 할 때마다 로그로 현재 스크롤의 위치가 찍혀나온다.
-    let value = window.scrollY;
-    console.log(value);
-    if (value > 300) {
-        document.getElementById('skillHTML').style.visibility = 'visible';
-    }
-    if (value > 400) {
-        document.getElementById('skillCss').style.visibility = 'visible';
-    }
-    if (value > 550) {
-        document.getElementById('skillJS').style.visibility = 'visible';
-    }
-    if (value > 800) {
-        document.getElementById('skillReact').style.visibility = 'visible';
-    }
+    let value = window.scrollY; // 스크롤 시 해당 Y값
+    showSkill(value);
 });

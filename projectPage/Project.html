@@ -17,13 +17,38 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="shortcut icon" href="./img/favicon.png" />
+        <link rel="stylesheet" href="./css/style.css">
         <title>Project</title>
     </head>
     <body>
         <div id="wrap">
-            <header></header>
+            <div id="wrap">
+                <header>
+                    <nav class="nav-bar">
+                        <div class="menu">
+                            <div class="menuIcon" id="menuIcon" onclick="toggleMenu()">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                            </div>
+                            <ul class="menuList" id="menuList">
+                                <li><a onclick="moveToMenu(event)" id="introduce">Introduce</a></li>
+                                <li><a onclick="moveToMenu(event)" id="skill">Skill</a></li>
+                                <li><a onclick="moveToMenu(event)" id="project">Work</a></li>
+                                <li><a onclick="moveToMenu(event)" id="contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo">
+                            <h1><a>MunSeok</a></h1>
+                        </div>
+                        <div class="menuContact">
+                            <a href="mailto:anstjr97@gmail.com">contact</a>
+                        </div>
+                    </nav>
+                </header>
             <main></main>
             <footer></footer>
         </div>
+        <script src="./js/main.js"></script>
     </body>
 </html>
