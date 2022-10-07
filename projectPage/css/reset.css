@@ -6,7 +6,12 @@
 body {
     font-family: 'Noto Sans KR', 'Lato', sans-serif;
     font-size: 18px;
+    -ms-overflow-style: none;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
+
 a {
     text-decoration: none;
     color: inherit;

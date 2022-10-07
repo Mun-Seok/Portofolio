@@ -1,19 +1,9 @@
 /* 변수 선언 및 초기화 */
 let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // 모바일 PC 구분
-let loadingSpinner = document.getElementById('loadingSpinner'); //로딩 스피너
 let menuIcon = document.getElementById('menuIcon'); // 메뉴 아이콘
 let menuList = document.getElementById('menuList'); // 메뉴 목록
 
 /* 함수 정의 */
-// 로딩화면
-const startLoading = () => {
-    loadingSpinner.style.display = 'block';
-};
-// 로딩화면 닫기
-const afterLoading = () => {
-    loadingSpinner.style.display = 'none';
-};
-
 // 모바일 및 테블릿 메뉴
 const toggleMenu = () => {
     if (isMobile) {
@@ -22,17 +12,32 @@ const toggleMenu = () => {
     }
 };
 
+// 화면 전환시 fadeIn 효과
+const viewChange = () => {
+    document.body.style.opacity = 0;
+    window.setTimeout(() => {
+        document.body.style.animation = 'fadeIn 3s';
+        document.body.style.opacity = 1;
+    });
+};
+
 // 메뉴 이동
 const moveToMenu = (event) => {
     let menuName = event.target.id; // 각 메뉴의 아이디
-    if (menuName == 'introduce') {
-        window.scroll(0, 0);
-    } else if (menuName == 'skill') {
-        window.scroll(0, 650);
-    } else if (menuName == 'project') {
-        window.scroll(0, 1530);
-    } else if (menuName == 'contact') {
-        window.scroll(0, 2500);
+    viewChange();
+    switch (menuName) {
+        case 'introduce':
+            window.scroll(0, 0);
+            break;
+        case 'skill':
+            window.scroll(0, 650);
+            break;
+        case 'project':
+            window.scroll(0, 1530);
+            break;
+        case 'contact':
+            window.scroll(0, 2500);
+            break;
     }
     // 메뉴 닫기
     toggleMenu();
@@ -77,17 +82,20 @@ const showSkill = (value) => {
     if (isMobile) {
         for (let i = 0; i < skills.length; i++) {
             if (value > 400 + 150 * i) {
-                skills[i].style.visibility = 'visible';
+                skills[i].style.animation = 'fadeIn 5s';
+                skills[i].style.opacity = 1;
             }
         }
     } else {
         for (let i = 0; i < skills.length; i++) {
             if (value > 400 + 100 * i) {
-                skills[i].style.visibility = 'visible';
+                skills[i].style.animation = 'fadeIn 5s';
+                skills[i].style.opacity = 1;
             }
         }
     }
 };
+
 // 포트폴리오 alert창
 const ready = () => {
     if (!confirm('본 사이트는 상업적 목적이 아닌 개인 포트폴리오 용도로 제작되었습니다. 홈페이지 일부 내용과 기타 이미지 등은 출처가 따로 있음을 밝힙니다. ')) {
@@ -100,6 +108,7 @@ const ready = () => {
 /* 이벤트 추가 */
 // 초기 HTML불러오고 분석했을때 alert창 띄우기, slide와 pager 버튼 생성
 document.addEventListener('DOMContentLoaded', () => {
+    viewChange();
     ready();
     projectPagination();
 });
@@ -108,4 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('scroll', () => {
     let value = window.scrollY; // 스크롤 시 해당 Y값
     showSkill(value);
+});
+
+// 모바일 PC 구분 다시 해주기
+window.addEventListener('resize', () => {
+    isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 });

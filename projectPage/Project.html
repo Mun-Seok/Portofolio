@@ -17,37 +17,67 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="shortcut icon" href="./img/favicon.png" />
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style.css" />
         <title>Project</title>
     </head>
     <body>
         <div id="wrap">
-            <div id="wrap">
-                <header>
-                    <nav class="nav-bar">
-                        <div class="menu">
-                            <div class="menuIcon" id="menuIcon" onclick="toggleMenu()">
-                                <span>1</span>
-                                <span>2</span>
-                                <span>3</span>
-                            </div>
-                            <ul class="menuList" id="menuList">
-                                <li><a onclick="moveToMenu(event)" id="introduce">Introduce</a></li>
-                                <li><a onclick="moveToMenu(event)" id="skill">Skill</a></li>
-                                <li><a onclick="moveToMenu(event)" id="project">Work</a></li>
-                                <li><a onclick="moveToMenu(event)" id="contact">Contact</a></li>
-                            </ul>
+            <header id="headerIn">
+                <nav class="nav-bar">
+                    <div class="menu">
+                        <div class="menuIcon" id="menuIcon" onclick="toggleMenu()">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
                         </div>
-                        <div class="logo">
-                            <h1><a>MunSeok</a></h1>
+                        <ul class="menuList" id="menuList">
+                            <li><a onclick="moveToMenu(event)" id="introduce">Introduce</a></li>
+                            <li><a onclick="moveToMenu(event)" id="skill">Skill</a></li>
+                            <li><a onclick="moveToMenu(event)" id="project">Work</a></li>
+                            <li><a onclick="moveToMenu(event)" id="contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- .menu -->
+                    <div class="logo">
+                        <h1><a>MunSeok</a></h1>
+                    </div>
+                    <!-- .logo -->
+                    <div class="menuContact">
+                        <a href="mailto:anstjr97@gmail.com">contact</a>
+                    </div>
+                    <!-- .menuContact -->
+                </nav>
+            </header>
+            <!-- #headerIn -->
+            <main class="main">
+                <h2>Project</h2>
+                <div class="projectBox" id="projectBox">
+                    <div class="projectSlide">
+                        <div class="projectSlideBox">
+                            <img src="/img/project-hnm.jpg" alt="UpDownGame" />
+                            <p>UpDown Game</p>
                         </div>
-                        <div class="menuContact">
-                            <a href="mailto:anstjr97@gmail.com">contact</a>
+                        <div class="projectSlideBox">
+                            <img src="/img/toDoList.png" alt="toDoList" />
+                            <p>To Do List</p>
                         </div>
-                    </nav>
-                </header>
-            <main></main>
-            <footer></footer>
+                        <div class="projectSlideBox">
+                            <img src="/img/newsAPI.png" alt="newsAPI" />
+                            <p>News</p>
+                        </div>
+                        <div class="projectSlideBox">
+                            <img src="/img/project-hnm.jpg" alt="project-hnm" />
+                            <p>H&M</p>
+                        </div>
+                    </div>
+                    <ul class="projectPager"></ul>
+                </div>
+            </main>
+            <footer class="footer">
+                <div class="returnMain">
+                    <a href="/index.html">Home</a>
+                </div>
+            </footer>
         </div>
         <script src="./js/main.js"></script>
     </body>
