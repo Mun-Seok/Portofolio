@@ -129,16 +129,19 @@
 
 /* introduce */
 .introduceBox {
-    width: 80%;
-    margin: 100px auto 100px auto;
+    width: 100vw;
+    margin: 100px auto;
 }
 .introduceTextBox {
-    margin-left: 5%;
+    width: 90%;
+    margin: 0 auto;
     line-height: 40px;
 }
 .introduceTextBox p {
     font-size: 1em;
     font-weight: 400;
+    letter-spacing: 3px;
+    word-spacing: 10px;
 }
 .introduceTextBox h3 {
     margin: 10px 0;
@@ -155,25 +158,30 @@
     font-weight: 500;
     text-align: center;
     line-height: 50px;
+
     background-color: slateblue;
     color: #fff;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
 .introducePhotoBox img {
-    width: 100%;
+    display: block;
+    width: 80%;
     height: 300px;
-    margin-top: 30px;
+    margin: 0 auto;
+    border-radius: 30px;
 }
 
 /* skill */
 .skillBox {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 .skillDescription {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    letter-spacing: 4px;
+    word-spacing: 7px;
     margin-bottom: 30px;
     opacity: 0;
 }
@@ -187,6 +195,9 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+}
+.skillDescriptionInfo h3 {
+    margin-bottom: 10px;
 }
 .skillIcon {
     display: flex;
@@ -237,6 +248,25 @@
     font-size: 18px;
     font-weight: bold;
 }
+.slideButton div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(50% - 16px);
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: #cccc;
+    cursor: pointer;
+}
+.slidePrevButton {
+    left: 5%;
+}
+.slideNextButton {
+    right: 5%;
+}
+
 .projectSlide .projectPager {
     position: absolute;
     left: calc(35%);
@@ -334,7 +364,12 @@
         margin-bottom: 200px;
     }
     .skillDescription {
+        justify-content: space-around;
         margin-left: 0;
+    }
+    .skillDescriptionInfo p {
+        letter-spacing: 2px;
+        word-spacing: 13px;
     }
     .skillIcon {
         width: 500px;
@@ -411,6 +446,8 @@
     .introduceTextBox {
         width: 500px;
         margin-right: 200px;
+        letter-spacing: 4px;
+        word-spacing: 17px;
     }
     .introduceTextBox p {
         font-size: 23px;
@@ -424,6 +461,7 @@
     }
     .introduceTextBox .moreProject a {
         margin-left: 0;
+        word-spacing: 5px;
     }
     /* skill */
     .skillBox {
@@ -433,6 +471,17 @@
     .skillDescription {
         justify-content: space-evenly;
         margin-bottom: 80px;
+    }
+    .skillDescription img {
+        width: 100px;
+        height: 100px;
+    }
+    .skillIcon {
+        width: 80%;
+    }
+    .skillIcon img {
+        width: 100px;
+        height: 100px;
     }
     /* project */
     .projectBox {
@@ -471,6 +520,9 @@
         width: 500px;
     }
     .projectPager li {
+        display: none;
+    }
+    .slideButton {
         display: none;
     }
     /* footer */

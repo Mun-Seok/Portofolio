@@ -24,7 +24,6 @@ const viewChange = () => {
 // 메뉴 이동
 const moveToMenu = (event) => {
     let menuName = event.target.id; // 각 메뉴의 아이디
-    viewChange();
     switch (menuName) {
         case 'introduce':
             window.scroll(0, 0);
@@ -39,6 +38,8 @@ const moveToMenu = (event) => {
             window.scroll(0, 2500);
             break;
     }
+    // 화면 이동 후 fadeIn
+    viewChange();
     // 메뉴 닫기
     toggleMenu();
 };
@@ -51,21 +52,56 @@ const projectPagination = () => {
     let maxSlide = slideBox.length; // slide 갯수
     let currentSlide = 1; // 현재 보여지는 slide
     let pagination = document.querySelector('.projectPager'); //슬라이드 페이저 버튼
+    let prevBtn = document.querySelector('.slidePrevButton'); // 슬라이드 prev 버튼
+    let nextBtn = document.querySelector('.slideNextButton'); // 슬라이드 next 버튼
+
+    // next 버튼 누를 경우 현재 슬라이드를 변경
+    nextBtn.addEventListener('click', () => {
+        currentSlide++;
+        if (currentSlide <= maxSlide) {
+            let offset = slideWidth * (currentSlide - 1);
+            slideBox.forEach((i) => {
+                i.setAttribute('style', `left: ${-offset}px`);
+            });
+            paginationItems.forEach((i) => i.classList.remove('active'));
+            paginationItems[currentSlide - 1].classList.add('active');
+        } else {
+            currentSlide--;
+        }
+    });
+
+    // prev 버튼 누를 경우 현재 슬라이드를 변경
+    prevBtn.addEventListener('click', () => {
+        currentSlide--;
+        if (currentSlide > 0) {
+            let offset = slideWidth * (currentSlide - 1);
+            slideBox.forEach((i) => {
+                i.setAttribute('style', `left: ${-offset}px`);
+            });
+            paginationItems.forEach((i) => i.classList.remove('active'));
+            paginationItems[currentSlide - 1].classList.add('active');
+        } else {
+            currentSlide++;
+        }
+    });
+
     // 페이지네이션 (pagination)
     for (let i = 0; i < maxSlide; i++) {
         if (i === 0) pagination.innerHTML += `<li class="active"></li>`;
         else pagination.innerHTML += `<li></li>`;
     }
     let paginationItems = document.querySelectorAll('.projectPager > li');
+
     // 기기에 따른 slideWidth 변경
     window.addEventListener('resize', () => {
         slideWidth = slide.clientWidth;
     });
+
     // 각 페이저 버튼 클릭 시 해당 슬라이드로 이동하기
     for (let i = 0; i < maxSlide; i++) {
         paginationItems[i].addEventListener('click', () => {
             currentSlide = i + 1;
-            let offset = slideWidth * (currentSlide - 1); // 페이저 누른  slide와 현재 slide 편차
+            let offset = slideWidth * (currentSlide - 1);
             slideBox.forEach((i) => {
                 i.setAttribute('style', `left: ${-offset}px`);
             });
@@ -82,14 +118,14 @@ const showSkill = (value) => {
     if (isMobile) {
         for (let i = 0; i < skills.length; i++) {
             if (value > 400 + 150 * i) {
-                skills[i].style.animation = 'fadeIn 5s';
+                skills[i].style.animation = 'fadeIn 3s';
                 skills[i].style.opacity = 1;
             }
         }
     } else {
         for (let i = 0; i < skills.length; i++) {
             if (value > 400 + 100 * i) {
-                skills[i].style.animation = 'fadeIn 5s';
+                skills[i].style.animation = 'fadeIn 3s';
                 skills[i].style.opacity = 1;
             }
         }
@@ -123,3 +159,8 @@ window.addEventListener('scroll', () => {
 window.addEventListener('resize', () => {
     isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 });
+
+/* 
+6. 섹션간의 구분 (뒷배경 색상)
+7. React 밑에 skill 아이콘 숨기고 클릭하면 보게 하기
+*/
