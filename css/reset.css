@@ -6,6 +6,7 @@
 body {
     font-family: 'Noto Sans KR', 'Lato', sans-serif;
     font-size: 17px;
+    word-break: keep-all;
     -ms-overflow-style: none;
 }
 body::-webkit-scrollbar {

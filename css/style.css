@@ -8,36 +8,6 @@
     max-width: 420px;
     margin: 0 auto;
 }
-/* loadingSpinner */
-#loadingSpinner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-@keyframes loading {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-#loadingSpinner .spinnerInner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    margin: -100px 0 0 -100px;
-    border-radius: 50%;
-    border: 8px solid transparent;
-    border-top-color: #009579;
-    border-bottom-color: #009579;
-    animation: loading 0.8s ease infinite;
-}
 .title {
     width: 100%;
     height: 10vh;
@@ -46,6 +16,7 @@
     font-size: 30px;
     font-weight: bolder;
 }
+
 /* nav-bar(menu) */
 .nav-bar {
     position: fixed;
@@ -130,7 +101,7 @@
 /* introduce */
 .introduceBox {
     width: 100vw;
-    margin: 100px auto;
+    margin: 82px auto;
 }
 .introduceTextBox {
     width: 90%;
@@ -140,8 +111,6 @@
 .introduceTextBox p {
     font-size: 1em;
     font-weight: 400;
-    letter-spacing: 3px;
-    word-spacing: 10px;
 }
 .introduceTextBox h3 {
     margin: 10px 0;
@@ -158,7 +127,6 @@
     font-weight: 500;
     text-align: center;
     line-height: 50px;
-
     background-color: slateblue;
     color: #fff;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
@@ -173,22 +141,22 @@
 
 /* skill */
 .skillBox {
-    width: 90%;
+    width: 100%;
+    padding: 50px 0;
     margin: 0 auto;
 }
 .skillDescription {
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    letter-spacing: 4px;
-    word-spacing: 7px;
-    margin-bottom: 30px;
+    margin: 30px auto;
     opacity: 0;
 }
 .skillDescription img {
     display: block;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
 }
 .skillDescriptionInfo {
     width: 70%;
@@ -199,14 +167,26 @@
 .skillDescriptionInfo h3 {
     margin-bottom: 10px;
 }
-.skillIcon {
+.skillMore {
+    display: none;
+}
+.skillIcon .skillMore a {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEUAAAD////19fXt7e2JiYliYmKrq6tkZGR7e3ugoKBsbGx2dnawsLD7+/v39/dfX1/Nzc3c3NzGxsa4uLguLi7W1tZZWVnExMSampri4uJRUVEwMDA4ODiDg4Pp6em9vb2QkJAbGxtNTU0mJiY8PDxFRUUODg4YGBgiIiJ1A6eIAAAJcklEQVR4nN2daXeqMBCGi+AGqNS9tlbs7fb/f+FVFMuSmUxCQpb3nPvplmMeIMlkNp4C3/VkegDa1QfhLHxertJpNEni8Xg4HI/jJNqPVtlL2MOPayYcZKPj4d8TrPU2SrOB1jFoIwyX+fYbYavqe7hfanueWgjDNDkT4f50TtJ3HYNRTjjbHdfCdKXW0W6mekBqCeerhTRdqUOqdl6qJDx1x7tpcVI4KmWEm4kivJuSTNXA1BAOptiWIKf1SM2UVEH4kijHu+n4omB03Qk3qmYfS8Nn44TZh0a+qw5dJ2Q3wuxLM99VHxtjhM+HHviuWnSZj/KEYdwT31WJvBUgTbjvke+qUc+Embhl3VWvktNRinDe5wv6p0lvhCsjfFfJ7BzihLOhMUCpxyhMmBnku+gsPBtFCY9mAS/aayUM30zzXbQVO3MIES5Nw90lZI6LEOamyR4S2f4FCHWekkR11EA4sGEK/mmrnPDFNFJTr1RbnEhoeBdkinikohGeTNMwRVtSSYQj0yyASGYqhdBWwKennRrCqWkORATnOJ/Q3id4Ff8pcglT0wwccecij9DOVbQq3nGKQ2jjPtgUZ1/ECa2zZJjCrRuUcGB67DS9yhPKh6v71UKWsC+nfXdFcoSR6XELCNn5YcKd6VELCV5QQcLQ9JjFdBYntOtIz1csSqg2s6IPQd4pgNB+Y60tYCqyCR3Z6usCNn42oTs7YVU5ndDuIyEspuOGRejYRvGnf1RCm5zbYmLFpRiELq6jpRg5uAxC06PsogOF0HwMtIvanqkWoRvHelA/fMKt6TF2VGuxaRK64HrC1fTaNAk/TQ+ws5rB0wahyztFqRAldMX3hCnBCH14hM1tv07owyNspobVCN1yPsEKQUL3F9KbjhDhxvTIlGkOELp7ampqyiZ09uDLEJuw79x0nToxCdUXZ5nTF4vQn3XmqhcGoXtebkw5g9D0mBSrTWiuxECPli1C18/2TcVNQicjFahmDULfXtK/17Qk9MdiK5XUCWemx6NBdUJfToZVZTVCtx3dbO1rhK+mh6NBX1VCnw5Of5pXCG1Pk5XTrkKoq+2DWR0rhD+mB6NFb3+Efk7D+0QsCG2pK1StzYMwNz0UTZo+CH07OZUaPwhNj0SX1iWhf2fDUiWh+5FtSM93Qok0trdJFB1j4WDcaxLlUSJsBK/jKIomEjm9qzuhaMr6JCs9BOFJoIVEvCwDJoOdQOuQxakMls0yUY9nficUW0qn9YL/AdHii+o5EgPibU3qUfmZWOghvhOKvGzbdgnOhmDzfbYTzt4Jb925nU85EMl9/bwTClzCbkrBfQnYLUm4T59dC5PTh/tzIxSwSqFscc60gkpaONMKSr8XKGodFIT0TDa4rQjatS0BL0PvDNxUICeP+L0gJNvdY/Angzly2Sd8GeY9OSOXkdfGTUFIdgYjP4lZDVj/XOT9wWpDsRta064gpLowUowQvq3sDPpSoJMPrIEpRJ2KaUFI3GLamZs1PUPXzdHLQJuYV/tK06ggJPpKed2LgBaKvN5VwGLDSGeuiWgw5AUh0SjhNWoGrFteNTngbcenBPLK1DUpCGk2IrOWoSpg0eA1dQJeU257bxphIkCIz3zwN7Gt4iZ2Cgj3MtqGEReEY9Lf8puIMbPi+C3kmHE93jSkrh43QtoBiN98inmnsBpkZKiIcXEXbb8YKyVkvu18QuaqyJ8TtGP70IZnyCTkP0MRQto8xE2Tq5gbImx1l2I++g/uZTlp1GMBQv5dZV6Gd3S4im18cy+jvXmxwG5x5v0ksB/iRhtoRHM/BEELJsUW2DTA2Y1n0xAPtTebhmjiSdqlvIkI3F/eRMxpg45Ezhbf+E/aebbYF4RUhzD+4oApR/giDL5A+I5IHfNI7IyPGdFI/i1mRL/Dl2FnfHKC06ogJIctsA0D6e+NGd+Iz/QXuYyco5Yp87Whlj5sfaPLOOxrozu+X1T5SzkbDjQVc/wyaCoK5MaEinze3JeG3TKWG2cZdnyChWl0/SdShrBgxC0IPfa/2ssNJW7x2zFusQ6kYk/1XwyJJlFe3xepsadJp9jTIug1fpjIxQ+Hu/K1mQvHD6NAOgb8OYnyXCoGHMnGgBOJGHAa+B7H39wJfU36utXme51PUxwWvM6JWjwIc9ND0aT9g9CPMvy2dg9C5AzjtMIHYUD9JKpbup2/fM7znlQI/czVX1UI/ZyIYYXQqzruUnd3u8d1T8caoY+1a7saoY+maVAn9M803TYI/dsv0gahf/n6gwahd6/pw5/sbU+FVYvQt9U0aBP6ZX0nDEK/PG4bBqEn7ehuqqSAVAht/q6TqEZMQnLytAOaMQk96qNUjeZVCR1vIVzRO0DojV1Ti6zWCH1paPYMEkJ5TY6pnuJQJ/SjMD9DCL14iI0c8QahD6bbBiV09OskVTXLMpuExFoUi9VMamylGwtkSVipVj5ri9D1oH4ro6mdMu52K9ppi4eRFO9yMHHdxmEQurztM9JuWYUNtAIMG8XKZGURuusdZsAwCZ31nS5ZMOzyGzd7fbJLO9iETrpsgIIQoITKxfUUKF+AisTcC3tD6fJgGZxr3yEFK4dBQtfsU/Dj3HApo1tTES4CRIo1c9OjFlDb4KYQOuQ+xQrd0IJbV7oLf2EQKKEjBuoZ7b2BF027EcnAu4RwysJd8C7y6mnx/3YgBRyrNaUQWv/14/aHR0UJLUc8ccfPJ7Q6vs9rTEAjtPgp8p8gjdDaxEUKII3QUscNr+WGCKGV+yLzW/HShPbFpH65/c4ECYOBXYf+D14fOHFCu1zh/CZpMoQWRaX4bbnkCK1xbPBMUXnCILTha7MfvNZTXQht8KPy26p1IzS9M34LvaFShMHM5JrKb3CngNCkDUez07oTBnMzKSkCm2BXwsu+0X86w6vwDOxE2P/2L7LJqyEMwj5XnCPZDFVIGASbvnI1x9w+kZoIL9OxD7//gXgQ1EIYBDvddtxWcoFRRngxcnSmpMYch3YvhJfzv67tMaee4zGpILyYANNf5Xhr6f2hLjWEF2Vq6xdjGQONKWWEF6Xot1gEtCA5QolSSRgEg7R7ZPyQgmkVUlJLeNFsd5Qv1fyMdvLGCyDlhFeFq4TQLbKh9fGk9uHdpYXwqnCZb6kHkO/hfqliY2BKG2GhQTY6HpDeNz9vwyjNtDy6h/QS3jQLn5erdBpNkng8Hg7H43iSj1bLl1Av2l19EJqV/4T/AfmadGPS0zxYAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.skillList {
     display: flex;
     justify-content: space-between;
 }
-.skillIcon img {
+.skillList img {
     display: block;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 @keyframes fadeIn {
@@ -338,13 +318,13 @@
         top: 102px;
     }
     .introduceBox {
+        width: 90%;
         display: flex;
         justify-content: center;
         margin-top: 150px;
         margin-bottom: 200px;
     }
     .introduceTextBox {
-        width: 500px;
         margin-top: 20px;
         margin-right: 50px;
     }
@@ -355,7 +335,6 @@
     .introduceTextBox h3 {
         line-height: 50px;
     }
-
     .introducePhotoBox img {
         width: 350px;
         height: 400px;
@@ -367,13 +346,14 @@
         justify-content: space-around;
         margin-left: 0;
     }
-    .skillDescriptionInfo p {
-        letter-spacing: 2px;
-        word-spacing: 13px;
-    }
+
     .skillIcon {
         width: 500px;
         margin: 50px auto;
+    }
+    .skillList img {
+        width: 80px;
+        height: 80px;
     }
     .projectBox {
         height: 900px;
@@ -440,33 +420,29 @@
     /* introduce */
     .introduceBox {
         height: 500px;
-        margin-top: 200px;
-        margin-bottom: 0;
+        margin: 200px auto 100px auto;
     }
     .introduceTextBox {
         width: 500px;
+        margin-left: 0;
         margin-right: 200px;
-        letter-spacing: 4px;
-        word-spacing: 17px;
     }
     .introduceTextBox p {
         font-size: 23px;
     }
     .introduceTextBox h3 {
         display: inline-block;
-        margin-right: 7px;
+        margin-right: 3px;
         font-size: 30px;
         line-height: 50px;
-        word-spacing: 7px;
     }
     .introduceTextBox .moreProject a {
         margin-left: 0;
-        word-spacing: 5px;
     }
     /* skill */
     .skillBox {
         height: 100vh;
-        margin-bottom: 200px;
+        margin-bottom: 300px;
     }
     .skillDescription {
         justify-content: space-evenly;
