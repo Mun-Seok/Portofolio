@@ -4,8 +4,9 @@
     padding: 0;
 }
 body {
-    font-family: 'Noto Sans KR', 'Lato', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 17px;
+    color: #171717;
     word-break: keep-all;
     -ms-overflow-style: none;
 }

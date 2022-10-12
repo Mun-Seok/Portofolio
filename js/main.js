@@ -160,6 +160,7 @@ window.addEventListener('resize', () => {
     isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 });
 
+
 /* 
 6. 섹션간의 구분 (뒷배경 색상)
 7. React 밑에 skill 아이콘 숨기고 클릭하면 보게 하기

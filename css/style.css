@@ -11,7 +11,7 @@
 .title {
     width: 100%;
     height: 10vh;
-    margin: 30px auto;
+    padding: 30px auto;
     text-align: center;
     font-size: 30px;
     font-weight: bolder;
@@ -101,7 +101,9 @@
 /* introduce */
 .introduceBox {
     width: 100vw;
-    margin: 82px auto;
+    margin: 82px auto 0 auto;
+    padding-bottom: 100px;
+    background-color: #fff;
 }
 .introduceTextBox {
     width: 90%;
@@ -144,9 +146,14 @@
     width: 100%;
     padding: 50px 0;
     margin: 0 auto;
+    background-color: #E2F0AC;
+}
+.skillBoxInner{
+    width:90%;
+    margin: 0 auto;
+    border-radius: 20px;
 }
 .skillDescription {
-    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -201,6 +208,8 @@
 .projectBox {
     width: 100%;
     height: 500px;
+    padding-top: 50px;
+    background-color:#82BCDC;
 }
 .projectSlide {
     position: relative;
@@ -233,11 +242,11 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: calc(50% - 16px);
+    top: 100px;
     width: 32px;
     height: 32px;
     border-radius: 100%;
-    background-color: #cccc;
+    background-color: #ccc;
     cursor: pointer;
 }
 .slidePrevButton {
@@ -268,7 +277,8 @@
 }
 /* contact */
 .contactBox {
-    margin-bottom: 10vh;
+    padding-bottom: 10vh;
+    background-color:#E4939C;
 }
 .contactBoxIcon {
     display: flex;
@@ -292,10 +302,10 @@
     background-image: url('https://cdn-icons-png.flaticon.com/512/25/25231.png');
 }
 .instagram a {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCY9r7OpsEq8EscDhMzKjx_EQb6LSMHYvQig&usqp=CAU');
+    background-image: url('https://freepikpsd.com/file/2019/10/instagram-icon-png-black-6-Transparent-Images.png');
 }
 .kakao a {
-    background-image: url('data:image/png;base64,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');
+    background-image: url('https://cdn.iconscout.com/icon/free/png-256/kakaotalk-sq-3185088-2661830.png');
 }
 /* 테블릿 */
 @media (min-width: 768px) {
@@ -309,7 +319,7 @@
     }
     .title {
         font-size: 38px;
-        margin-top: 50px;
+        padding-top: 50px;
     }
     .nav-bar {
         height: 100px;
@@ -318,15 +328,15 @@
         top: 102px;
     }
     .introduceBox {
-        width: 90%;
+        width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 150px;
-        margin-bottom: 200px;
+        padding-top: 150px;
+        padding-bottom: 200px;
+        margin: 0 auto;
     }
     .introduceTextBox {
-        margin-top: 20px;
-        margin-right: 50px;
+        margin-left: 5%;
     }
     .introduceTextBox p {
         line-height: 50px;
@@ -340,7 +350,7 @@
         height: 400px;
     }
     .skillBox {
-        margin-bottom: 200px;
+        padding-bottom: 200px;
     }
     .skillDescription {
         justify-content: space-around;
@@ -363,6 +373,13 @@
     }
     .projectSlideBox p {
         font-size: 30px;
+    }
+    .slideButton div{
+        top: 200px;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 25px;
     }
     .projectPager li {
         width: 20px;
@@ -418,9 +435,12 @@
     }
     /* main */
     /* introduce */
+    .title{
+        padding-bottom: 100px;
+    }
     .introduceBox {
         height: 500px;
-        margin: 200px auto 100px auto;
+        margin-top: 100px;
     }
     .introduceTextBox {
         width: 500px;
@@ -441,8 +461,7 @@
     }
     /* skill */
     .skillBox {
-        height: 100vh;
-        margin-bottom: 300px;
+        padding-bottom: 100px;
     }
     .skillDescription {
         justify-content: space-evenly;
@@ -507,11 +526,15 @@
         width: 1200px;
         margin: 0 auto;
     }
+    .contactBox a{
+        width: 100px;
+        height: 100px;
+    }
     .telephone a:hover,
     .github a:hover,
     .instagram a:hover,
     .kakao a:hover {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
     }
 }
