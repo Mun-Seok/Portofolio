@@ -146,10 +146,10 @@
     width: 100%;
     padding: 50px 0;
     margin: 0 auto;
-    background-color: #E2F0AC;
+    background-color: #e2f0ac;
 }
-.skillBoxInner{
-    width:90%;
+.skillBoxInner {
+    width: 90%;
     margin: 0 auto;
     border-radius: 20px;
 }
@@ -209,7 +209,7 @@
     width: 100%;
     height: 500px;
     padding-top: 50px;
-    background-color:#82BCDC;
+    background-color: #82bcdc;
 }
 .projectSlide {
     position: relative;
@@ -277,8 +277,9 @@
 }
 /* contact */
 .contactBox {
+    padding-top: 50px;
     padding-bottom: 10vh;
-    background-color:#E4939C;
+    background-color: #e4939c;
 }
 .contactBoxIcon {
     display: flex;
@@ -374,7 +375,7 @@
     .projectSlideBox p {
         font-size: 30px;
     }
-    .slideButton div{
+    .slideButton div {
         top: 200px;
         width: 70px;
         height: 70px;
@@ -384,6 +385,10 @@
     .projectPager li {
         width: 20px;
         height: 20px;
+    }
+    .contactBoxIcon a {
+        width: 100px;
+        height: 100px;
     }
 }
 /* PC */
@@ -435,7 +440,7 @@
     }
     /* main */
     /* introduce */
-    .title{
+    .title {
         padding-bottom: 100px;
     }
     .introduceBox {
@@ -461,6 +466,8 @@
     }
     /* skill */
     .skillBox {
+        flex-wrap: wrap;
+        flex-direction: column;
         padding-bottom: 100px;
     }
     .skillDescription {
@@ -468,13 +475,6 @@
         margin-bottom: 80px;
     }
     .skillDescription img {
-        width: 100px;
-        height: 100px;
-    }
-    .skillIcon {
-        width: 80%;
-    }
-    .skillIcon img {
         width: 100px;
         height: 100px;
     }
@@ -526,7 +526,7 @@
         width: 1200px;
         margin: 0 auto;
     }
-    .contactBox a{
+    .contactBox a {
         width: 100px;
         height: 100px;
     }
