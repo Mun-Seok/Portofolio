@@ -46,14 +46,14 @@ const moveToMenu = (event) => {
 
 // projectSlide 페이지네이션
 const projectPagination = () => {
-    let slide = document.querySelector('.projectSlide'); // 화면에 보여지는 slide
-    let slideBox = document.querySelectorAll('.projectSlideBox'); // slide
+    const slide = document.querySelector('.projectSlide'); // 화면에 보여지는 slide
+    const slideBox = document.querySelectorAll('.projectSlideBox'); // slide
     let slideWidth = slide.clientWidth; // slide의 width (border,margin 제외)
     let maxSlide = slideBox.length; // slide 갯수
     let currentSlide = 1; // 현재 보여지는 slide
-    let pagination = document.querySelector('.projectPager'); //슬라이드 페이저 버튼
-    let prevBtn = document.querySelector('.slidePrevButton'); // 슬라이드 prev 버튼
-    let nextBtn = document.querySelector('.slideNextButton'); // 슬라이드 next 버튼
+    const pagination = document.querySelector('.projectPager'); //슬라이드 페이저 버튼
+    const prevBtn = document.querySelector('.slidePrevButton'); // 슬라이드 prev 버튼
+    const nextBtn = document.querySelector('.slideNextButton'); // 슬라이드 next 버튼
 
     // next 버튼 누를 경우 현재 슬라이드를 변경
     nextBtn.addEventListener('click', () => {
@@ -159,7 +159,6 @@ window.addEventListener('scroll', () => {
 window.addEventListener('resize', () => {
     isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 });
-
 
 /* 
 6. 섹션간의 구분 (뒷배경 색상)
